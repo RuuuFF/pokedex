@@ -1,6 +1,6 @@
 const Pokemon = {
   poke_container: document.getElementById('poke-container'),
-  pokemon_count: 200,
+  pokemon_count: 150,
 
   colors: { fire: '#fddfdf', grass: '#defde0', electric: '#fcf7de', water: '#def3fd', ground: '#f4e7da', rock: '#d5d5d4', fairy: '#fceaff', poison: '#98d7a5', bug: '#f8d5a3', dragon: '#97b3e6', psychic: '#eaeda1', flying: '#f5f5f5', fighting: '#e6e0d4', normal: '#f5f5f' },
 
@@ -17,7 +17,7 @@ const Pokemon = {
     const name = Pokemon.formatName(pokemon.name)
     const id = pokemon.id.toString().padStart(3, '0')
     const poke_types = pokemon.types.map(type => type.type.name)
-    const type = Pokemon.main_types.find(type => poke_types.indexOf(type) > -1)
+    const type = Pokemon.formatName(Pokemon.main_types.find(type => poke_types.indexOf(type) > -1))
     
     const color = Pokemon.colors[type]
     pokemonEl.style.backgroundColor = color
@@ -29,7 +29,7 @@ const Pokemon = {
       <div class="info">
         <span class="number">#${id}</span>
         <h3 class="name">${name}</h3>
-        <small class="type">Type: <span>${Pokemon.formatName(type)}</span></small>
+        <small class="type">Type: <span>${type}</span></small>
       </div>
     `
   
